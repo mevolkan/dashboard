@@ -10,6 +10,7 @@
 .dark_mode{
     --primary-color: #172046;
     --secondary-color:#fff;
+    --tertiary-color:#09153e;
 }
 
 body{
@@ -18,7 +19,7 @@ body{
     color: var(--secondary-color);
 }
 main{
-    background: var(--primary-color);
+    background: var(--tertiary-color);
     color: var(--secondary-color);
     padding: 2%;
 }
