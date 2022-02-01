@@ -31,6 +31,30 @@ function fetchTime() {
     document.getElementById("month").innerHTML = m;
     document.getElementById("year").innerHTML = y;
 }
+//charts
+
+var myChart = new Chart(
+    document.getElementById('weathersummary'),
+    config
+  );
+
+  //air qualityvar axios = require("axios").default;
+
+var options = {
+    method: 'GET',
+    url: 'https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality',
+    params: {lat: location.lat, lon: location.long},
+    headers: {
+      'x-rapidapi-host': 'air-quality-by-api-ninjas.p.rapidapi.com',
+      'x-rapidapi-key': rapidApiKey
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+      console.log(response.data);
+  }).catch(function (error) {
+      console.error(error);
+  });
 
 
 // Dark mode
