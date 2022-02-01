@@ -22,6 +22,7 @@ main{
     background: var(--tertiary-color);
     color: var(--secondary-color);
     padding: 2%;
+    border-radius: 10px;
 }
 .container {
     display: -ms-flexbox;

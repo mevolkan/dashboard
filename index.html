@@ -17,7 +17,7 @@
                 logo
             </div>
             <div class="profile">
-                Good afternoon
+                Good <span id="greeting">afternoon</span>
                 welcome sir
             </div>
             <div class="search">
@@ -35,8 +35,35 @@
             </div>
             <div class="maincontent">
                 Charts and stuff
+                <div class="brief-cards">
+                    <div class="card">card 1</div>
+                    <div class="card">Weather Quality</div>
+                </div>
+                <div class="charts">
+                    <div class="chart">
+                        How's the temperature today
+                    </div>
+
+                    <div class="card-summary">
+                        summary
+                    </div>
+                </div>
             </div>
             <div class="weather">
+                <div>
+                    <span id="day"></span>
+                    <p id="date"></p>
+                    <span id="time"></span>
+                    <span id="month"></span>
+                    <span id="year"></span>
+                    <span id="temperature"></span>
+                    <span id="location"></span>
+                </div>
+                <select id="location">
+                    <option>Nairobi</option>
+                    <option>Mombasa</option>
+                    <option>Auto select</option>
+                </select>
                 current weather conditons
                 <img src="./images/moon.png" id="switcher">
             </div>
@@ -44,5 +71,6 @@
 
     </main>
 </body>
-<script src="./js/scripts.js"></script> 
+<script src="./js/scripts.js"></script>
+
 </html>
