@@ -37,16 +37,25 @@
                 Charts and stuff
                 <div class="brief-cards">
                     <div class="card">card 1</div>
-                    <div class="card">Weather Quality</div>
+                    <div class="card">
+                        <div>Air Quality
+                            PM2.5 particulates<span id="pm25"></span>
+                            PM10 particulates<span id="pm10"></span>
+                        </div>
+                        <div>
+                            <span id="overallAQI">320</span><span>AQI</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="charts">
                     <div class="chart">
                         How's the temperature today
+                        <canvas id="weathersummary"></canvas>
                     </div>
 
                     <div class="card-summary">
                         summary
-                        <canvas id="weathersummary"></canvas>
+                        
                     </div>
                 </div>
             </div>
@@ -60,11 +69,12 @@
                     <span id="temperature"></span>
                     <span id="location"></span>
                 </div>
-                <select id="location">
-                    <option>Nairobi</option>
-                    <option>Mombasa</option>
-                    <option>Auto select</option>
+                <select id="weatherlocation">
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="select">Auto select</option>
                 </select>
+                <br>
                 current weather conditons
                 <img src="./images/moon.png" id="switcher">
             </div>
@@ -74,6 +84,7 @@
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./apikeys.js"></script>
 <script src="./js/config.js"></script>
 <script src="./js/scripts.js"></script>
 

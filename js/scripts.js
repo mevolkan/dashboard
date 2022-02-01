@@ -36,25 +36,89 @@ function fetchTime() {
 var myChart = new Chart(
     document.getElementById('weathersummary'),
     config
-  );
+);
 
-  //air qualityvar axios = require("axios").default;
+//fetch location
+let city = "nairobi"
+let weatherLocation = document.getElementById("weatherlocation")
+weatherLocation.onchange = function () {
+    let selectedLocation = this.selectedIndex;
+    optionSelected = this.options[selectedLocation].value;
 
-var options = {
-    method: 'GET',
-    url: 'https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality',
-    params: {lat: location.lat, lon: location.long},
-    headers: {
-      'x-rapidapi-host': 'air-quality-by-api-ninjas.p.rapidapi.com',
-      'x-rapidapi-key': rapidApiKey
+    if (optionSelected === 'select') {
+        getLocation();
+        getAirQuality();
+    } else {
+        city = optionSelected;
+        x.innerHTML = city;
+        getAirQuality();
     }
-  };
-  
-  axios.request(options).then(function (response) {
-      console.log(response.data);
-  }).catch(function (error) {
-      console.error(error);
-  });
+}
+var x = document.getElementById("location");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+let currentLocation = {
+    lat: 0,
+    long: 0,
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    currentLocation.lat = position.coords.latitude;
+    currentLocation.long = position.coords.longitude;
+    console.log(currentLocation)
+}
+
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+
+
+//air quality
+function getAirQuality() {
+    //var axios = require("axios").default;
+
+    var options = {
+        method: 'GET',
+        url: 'https://air-quality-by-api-ninjas.p.rapidapi.com/v1/airquality',
+        params: {
+            lat: location.lat,
+            lon: location.long,
+            city: city
+        },
+        headers: {
+            'x-rapidapi-host': 'air-quality-by-api-ninjas.p.rapidapi.com',
+            'x-rapidapi-key': keys.xRapidapiKey
+        }
+    };
+
+    axios.request(options).then(function (response) {
+        console.log(response.data);
+    }).catch(function (error) {
+        console.error(error);
+    });
+
+}
+
 
 
 // Dark mode
