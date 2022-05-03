@@ -5,6 +5,9 @@ window.onload = function () {
         fetchTime();
     }, 1000);
 }
+
+//run functions https://youtu.be/lpDwfwhFuPQ?list=PLWOdyjG6bHl54g4o3V-5ooeGnAfqWH6ja
+
 // get date
 function fetchTime() {
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

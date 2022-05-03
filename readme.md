@@ -20,4 +20,5 @@ Goal is to improve my skills
 - Use browser storage
 - Write to database via an api
 - Fetch from both esp32, APIs and local database
+- send updates via whatsapp [https://www.twilio.com/docs/whatsapp]
 
