@@ -4,6 +4,8 @@ window.onload = function () {
     setInterval(() => {
         fetchTime();
     }, 1000);
+
+    getAirQuality()
 }
 
 //run functions https://youtu.be/lpDwfwhFuPQ?list=PLWOdyjG6bHl54g4o3V-5ooeGnAfqWH6ja
@@ -97,6 +99,7 @@ function showError(error) {
 
 
 //air quality
+var airQualityData
 function getAirQuality() {
     //var axios = require("axios").default;
 
@@ -116,6 +119,8 @@ function getAirQuality() {
 
     axios.request(options).then(function (response) {
         console.log(response.data);
+        airQualityData = response.data;
+  
     }).catch(function (error) {
         console.error(error);
     });
