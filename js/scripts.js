@@ -8,6 +8,18 @@ window.onload = function () {
     getAirQuality()
 }
 
+const greeting = document.getElementById("greeting");
+const hour = new Date().getHours();
+const welcomeTypes = ["Good morning", "Good afternoon", "Good evening"];
+let welcomeText = "";
+
+if (hour < 12) welcomeText = welcomeTypes[0];
+else if (hour < 18) welcomeText = welcomeTypes[1];
+else welcomeText = welcomeTypes[2];
+
+greeting.innerHTML = welcomeText;
+
+
 //run functions https://youtu.be/lpDwfwhFuPQ?list=PLWOdyjG6bHl54g4o3V-5ooeGnAfqWH6ja
 
 // get date
@@ -120,8 +132,7 @@ function getAirQuality() {
     axios.request(options).then(function (response) {
         console.log(response.data);
         airQualityData = response.data;
-        
-  
+
     }).catch(function (error) {
         console.error(error);
     });

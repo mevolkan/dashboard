@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Dashboard</title>
+    <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"
+        integrity="sha384-xBXmu0dk1bEoiwd71wOonQLyH+VpgR1XcDH3rtxrLww5ajNTuMvBdL5SOiFZnNdp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./css/styles.css">
+
+
+</head>
+
+<body>
+    <main class="container md:h-4/5">
+        <div class="heading mb-2">
+            <div class="flex flex-row justify-between">
+                <div class="logo flex flex-row space-x-4">
+                    <div class="avatar">
+                        <img class="h-12 w-12" src="./images/man.png" alt="logo">
+                    </div>
+                    <div class="profile">
+                        <span id="greeting">afternoon</span><br>
+                        welcome,
+                    </div>
+                </div>
+                <div>
+                    <span id="temperature"></span>
+                    <span id="location"></span>
+                </div>
+
+                <div class="flex flex-row space-x-4">
+                    <div class="text-4xl">
+                        <span class="" id="day"></span>
+                        <span id="date"></span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-" id="time"></span>
+                        <div> <span id="month"></span>
+                            <span id="year"></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <select id="weatherlocation" name="weatherlocation">
+                        <option value="Nairobi" selected>Nairobi</option>
+                        <option value="Mombasa">Mombasa</option>
+                        <option value="select">Auto select</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="main grid grid-cols-12 gap-1">
+            <div class="appmenu col-span-1 justify-between">
+                <ul class="space-y-1">
+                    <li>Charts</li>
+                    <li>Charts</li>
+                    <li>Location</li>
+                    <li>Map</li>
+                </ul>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                </div>
+            </div>
+            <div class="col-span-11">
+                <div class="grid grid-cols-3">
+                    <div class="col-span-1">
+                        Charts and stuff
+                        <div class="brief-cards">
+                            <div class="card">card 1</div>
+                            <div id="airqualityid" class="card">
+                                <span id="overall"></span>
+                                <div>
+                                    <span id="co"></span>
+                                    <span id="coaqi"></span>
+                                </div>
+                                <div>
+                                    <span id="no2"></span>
+                                    <span id="no2aqi"></span>
+                                </div>
+                                <div>
+                                    <span id="03"></span>
+                                    <span id="03aqi"></span>
+                                </div>
+                                <div>
+                                    <span id="pm2"></span>
+                                    <span id="pm2aqi"></span>
+                                </div>
+                                <div>
+                                    <span id="pm10"></span>
+                                    <span id="pm10aqi"></span>
+                                </div>
+                                <div>
+                                    <span id="so2"></span>
+                                    <span id="so2aqi"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="charts">
+                            <div class="chart">
+                                <div class="flex flex-row">
+                                    <div>
+                                        <span class="text-2xl">
+                                            How's the <br>temperature today
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <ul class="flex inline space-x-4">
+                                            <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i></li>
+                                            <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <canvas id="weathersummary"></canvas>
+                            </div>
+
+                            <div class="card-summary">
+                                summary
+                                {response.data}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather col-span-1">
+                        <div class="">
+
+                        </div>
+
+                        <br>
+                        current weather conditons
+                        <img src="./images/moon.png" id="switcher">
+                    </div>
+                    <div class="col-span-1">
+                        Sun index
+                    </div>
+                </div>
+                <div class="grid grid-cols-3">
+                    <div>
+                        Sun conditions
+                    </div>
+                    <div>
+                        Weather Prediction
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./apikeys.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/scripts.js"></script>
+
+</html>
