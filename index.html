@@ -23,8 +23,6 @@
         }
     </script>
     <link rel="stylesheet" href="./css/styles.css">
-
-
 </head>
 
 <body>
@@ -119,26 +117,25 @@
                         </div>
                         <div class="charts">
                             <div class="chart">
-                                <div class="flex flex-row">
-                                    <div>
-                                        <span class="text-2xl">
-                                            How's the <br>temperature today
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <ul class="flex inline space-x-4">
-                                            <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-thermometer-empty" aria-hidden="true"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <canvas id="weathersummary"></canvas>
+                                todays weather
                             </div>
-
                             <div class="card-summary">
                                 summary
                                 {response.data}
+                            </div>
+                        </div>
+                        <div class="flex inline gap-2">
+                            <div class="p-2 text-center rounded bg-slate-900 text-white">
+                                <span class="text-xs">Pressure</span><br>
+                                <span>800mb</span>
+                            </div>
+                            <div class="p-2 tet-center rounded bg-yellow-50 dark:text-[#172046]">
+                                <span class="text-xs">Visibility</span><br>
+                                <span>4.3 km</span>
+                            </div>
+                            <div class="p-2 text-center rounded bg-white dark:bg-sky-500/50 ">
+                                <span class="text-xs">Humidity</span> <br>
+                                <span>87%</span>
                             </div>
                         </div>
                     </div>
@@ -155,12 +152,29 @@
                         Sun index
                     </div>
                 </div>
-                <div class="grid grid-cols-3">
-                    <div>
-                        Sun conditions
+                <div class="grid grid-cols-4">
+                    <div class="col-span-2">
+                        <div class="flex flex-row justify-between">
+                            <div>
+                                <span class="text-2xl">
+                                    How's the <br>temperature today
+                                </span>
+                            </div>
+                            <div>
+                                <ul class="flex inline space-x-4">
+                                    <li><i class="p-2 fa fa-thermometer-empty" aria-hidden="true"></i></li>
+                                    <li><i class="p-2 fa fa-thermometer-empty" aria-hidden="true"></i></li>
+                                    <li><i class="p-2 fa fa-thermometer-empty" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <canvas id="weathersummary"></canvas>
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         Weather Prediction
+                    </div>
+                    <div class="col-span-1">
+                        Tomoroe
                     </div>
                 </div>
             </div>
