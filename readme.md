@@ -14,6 +14,8 @@ Goal is to improve my skills
 
 - Light/dark mode toggle
 - Live previews
+- https://chrisdevcode.hashnode.dev/creating-a-weather-search-app-in-vanilla-javascript
+- websocket from esp32
 - Fullscreen mode
 - Cross platform
 - Intergrate websockets
