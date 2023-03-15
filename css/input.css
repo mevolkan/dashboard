@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #eaeff0;
+  --secondary-color: #1a2841;
+}
+
+.dark_mode {
+  --primary-color: #172046;
+  --secondary-color: #fff;
+  --tertaiary-color: #09153e;
+}
+
+body {
+  padding: 10%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+main {
+  background: var(--tertiary-color);
+  color: var(--secondary-color);
+  padding: 2%;
+  border-radius: 10px;
+}
+#switcher {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

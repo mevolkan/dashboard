@@ -10,11 +10,15 @@ Design separately inspired by
 
 Goal is to improve my skills
 
+using Tailwind CLI
+./tailwindcss -i css/input.css -o css/styles.css --watch
+./tailwindcss -i css/input.css -o css/styles.css --minify
+
 ## Features
 
 - Light/dark mode toggle
 - Live previews
-- https://chrisdevcode.hashnode.dev/creating-a-weather-search-app-in-vanilla-javascript
+- <https://chrisdevcode.hashnode.dev/creating-a-weather-search-app-in-vanilla-javascript>
 - websocket from esp32
 - Fullscreen mode
 - Cross platform
@@ -28,3 +32,12 @@ Goal is to improve my skills
 ## Project Structure
 
 - proarduino code, minimal front end, backend
+
+## Configs
+
+Create an apikeys.js to hide your api keys
+Should be a Javascript object in the format
+
+var keys={
+'xRapidapiKey':'key'
+}
